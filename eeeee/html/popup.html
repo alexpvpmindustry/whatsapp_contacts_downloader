@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style/select2.min.css" />
+    <link rel="stylesheet" href="src/style/select2-material.css" />
+    <link rel="stylesheet" href="src/style/style.css" />
+  </head>
+  <body class="description-container">
+      <div class="header">
+        <h3 class="header__text">
+          <span data-description-state="off">
+              Contact Saver for
+              <span class="header__text--accent">&nbsp;WhatsApp&trade;&nbsp;</span>
+              <span id="licenseStatus"></span>
+          </span>
+          <span data-description-state="on">Help</span>
+        </h3>
+        <img data-description-toggle
+             class="help-icon"
+             src="./image/info.svg"
+             data-description-state="off"
+             alt="Description toggle">
+
+        <img data-description-toggle
+             class="help-icon"
+             src="./image/close.svg"
+             data-description-state="on"
+             alt="Description toggle">
+      </div>
+
+      <div class="layout-wrapper">
+          <ul class="nav-tabs">
+              <li class="nav-tabs__tab active-tab" id="export-tab" data-tab="export" data-tab-default>Export</li>
+              <li class="nav-tabs__tab" id="status-tab" data-tab="post-status">Post status</li>
+              <li class="nav-tabs__tab" id="auth-tab" data-tab="auth">Authorization</li>
+          </ul>
+
+          <div id="picker" data-tab-body="export" class="export-filters">
+              <div class="export-filters__group">
+                  <span class="export-filters__header">Export WhatsApp Contacts from:</span>
+
+                  <div class="export-filters__container">
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="chat">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="chat"
+                                      name="choose"
+                                      id="chat"
+                                      checked
+                              />
+                              <span class="radio-emulated">Chats</span>
+                          </label>
+                      </div>
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="fromGroup">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="ContactsFromSpecificGroup"
+                                      name="choose"
+                                      id="fromGroup"
+                              />
+                              <span class="radio-emulated">Groups</span>
+                          </label>
+                      </div>
+                  </div>
+
+                  <div class="input-container" id="method-contain">
+                      <select class="js-example-basic-single"
+                              style="width: 100%"
+                              name="state"
+                              id="select-group">
+                      </select>
+                  </div>
+              </div>
+
+              <div class="export-filters__group">
+                  <span class="export-filters__header">Choose Contact Type:</span>
+                  <div class="export-filters__container">
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="all-conatacts">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="all"
+                                      name="data-type"
+                                      id="all-conatacts"
+                                      checked
+                              />
+                              <span class="radio-emulated">All</span>
+                          </label>
+                      </div>
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="saved-conatacts">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="chat"
+                                      name="data-type"
+                                      id="saved-conatacts"
+                              />
+                              <span class="radio-emulated">Saved</span>
+                          </label>
+                      </div>
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="non-saved-conatacts">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="non-chat"
+                                      name="data-type"
+                                      id="non-saved-conatacts"
+                              />
+                              <span class="radio-emulated">Non Saved</span>
+                          </label>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="export-filters__group" id="format">
+                  <div class="export-filters__header">Choose Format:</div>
+                  <div class="export-filters__container">
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="csv">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="Csv"
+                                      name="choose-format"
+                                      id="csv"
+                                      checked
+                              />
+                              <span class="radio-emulated">CSV</span>
+                          </label>
+                      </div>
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="vCard">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="vCart"
+                                      name="choose-format"
+                                      id="vCard"
+                              />
+                              <span class="radio-emulated">vCard</span>
+                          </label>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="export-filters__group export-filters__group--no-offset" id="type-send">
+                  <div class="export-filters__header">Download or Send:</div>
+
+                  <div class="export-filters__container">
+                      <div class="choose-container">
+                          <label class="radio-label choose-item " for="download">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="Download"
+                                      name="choose-type-send"
+                                      id="download"
+                                      checked
+                              />
+                              <span class="radio-emulated">Download</span>
+                          </label>
+                      </div>
+                      <div class="choose-container">
+                          <label id="button-email" class="radio-label  choose-item" for="email">
+                              <input
+                                      class="radio-export"
+                                      type="radio"
+                                      value="Email"
+                                      name="choose-type-send"
+                                      id="email"/>
+
+                              <span class="radio-emulated">Email</span>
+                          </label>
+                      </div>
+                      <div class="choose-container">
+                          <label class="radio-label  choose-item" for="what-app">
+                              <input class="radio-export"
+                                     type="radio"
+                                     value="Phone"
+                                     name="choose-type-send"
+                                     id="what-app" />
+
+                              <span class="radio-emulated">Phone</span>
+                          </label>
+                      </div>
+                  </div>
+                  <div class="input-container input-container--column hide" id="input-container">
+                      <input class="email-input" placeholder="Your Email" id="input-email" type="text" />
+                      <span id="input-error" class="hide">Invalid email</span>
+                  </div>
+              </div>
+
+              <div class="export-actions">
+                  <span id="info-send" class="text-info hide">Export may take up to 45 seconds</span>
+
+                  <div class="export-actions__wrapper">
+                      <div class="support-chat">
+                          <span class="support-chat__text" data-help-opener="export">I need help</span>
+                      </div>
+                      <button id="export" class="button-primary button-export selected" disabled>
+                          Export
+                          <span class="spinner"></span>
+                      </button>
+                  </div>
+
+                  <div data-help="export" class="help-window"></div>
+              </div>
+          </div>
+      </div>
+
+      <div class="layout-wrapper layout-wrapper--column set-status hide" data-tab-body="post-status" id="status-container">
+        <span class="status-header">Status Message</span>
+        <div class="input-container input-container--column  input-container--status show">
+            <textarea
+              class="status-text"
+              id="status-text-to-send"
+              cols="30"
+              maxlength="700"
+              rows="10"
+              placeholder="Type Status Message"
+            ></textarea>
+            <span id="status-counter">0/700</span>
+            <span id="status-error" class="hide">Invalid field</span>
+        </div>
+        <div class="button-container">
+            <div class="support-chat">
+                <span class="support-chat__text" data-help-opener="post-status">I need help</span>
+            </div>
+
+            <button class="button-primary selected" id="post-status">POST</button>
+        </div>
+
+        <div data-help="post-status" class="help-window"></div>
+
+          <div id="status-popup" class="status-popup hide">
+          Done! Your status is posted!
+        </div>
+      </div>
+
+      <div class="auth-container hide" data-tab-body="auth">
+        <div data-auth="authorized" class="hide auth-authorized">
+          <button class="selected button-primary" data-auth="logout">Logout</button>
+        </div>
+        <div data-auth="guest" class="hide auth-guest validation-wrapper">
+          <h3 class="auth-title">Log in</h3>
+          <div class="auth-email">
+            <input type="email" placeholder="example@example.com" name="email" data-auth="email">
+            <span class="validation-error hide" data-auth="email-error"></span>
+          </div>
+          <div class="auth-password">
+            <input type="password" placeholder="Enter Password" name="password" data-auth="password">
+            <span class="validation-error hide" data-auth="password-error"></span>
+            <button class="toggle-password" data-auth="password-toggle"></button>
+          </div>
+          <div class="auth-forgot-password">
+            <a href="https://app.statfluence.com" target="_blank">Forgot password?</a>
+          </div>
+
+          <button class="selected button-primary" data-auth="login">Sign In</button>
+          <p class="auth-create-account">
+            <a href="https://app.statfluence.com" target="_blank">Don’t have an account? Sign up</a>
+          </p>
+        </div>
+      </div>
+
+      <div id="expired" class="expired">
+        <div class="expired-container">
+          <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0H300V300H0V0Z" fill="white"/>
+            <path d="M0 0H300V65H0V0Z" fill="#F5F6F8"/>
+            <path d="M96.1831 158.761H93.2124V167H92V158.761H89.0356V157.758H96.1831V158.761ZM96.4243 163.502C96.4243 162.83 96.5555 162.224 96.8179 161.687C97.0845 161.15 97.4526 160.735 97.9224 160.443C98.3963 160.151 98.9359 160.005 99.541 160.005C100.476 160.005 101.232 160.329 101.807 160.976C102.387 161.624 102.677 162.485 102.677 163.56V163.642C102.677 164.311 102.548 164.912 102.29 165.445C102.036 165.974 101.67 166.386 101.191 166.683C100.717 166.979 100.172 167.127 99.5537 167.127C98.6227 167.127 97.8674 166.803 97.2876 166.156C96.7121 165.508 96.4243 164.651 96.4243 163.585V163.502ZM97.605 163.642C97.605 164.404 97.7806 165.015 98.1318 165.477C98.4873 165.938 98.9613 166.168 99.5537 166.168C100.15 166.168 100.624 165.936 100.976 165.47C101.327 165 101.502 164.345 101.502 163.502C101.502 162.749 101.323 162.14 100.963 161.674C100.607 161.205 100.133 160.97 99.541 160.97C98.9613 160.97 98.4937 161.2 98.1382 161.662C97.7827 162.123 97.605 162.783 97.605 163.642ZM111.614 166.321C111.157 166.858 110.486 167.127 109.602 167.127C108.87 167.127 108.311 166.915 107.926 166.492C107.545 166.065 107.353 165.434 107.349 164.601V160.132H108.523V164.569C108.523 165.61 108.946 166.13 109.792 166.13C110.69 166.13 111.286 165.796 111.583 165.127V160.132H112.757V167H111.64L111.614 166.321ZM115.658 160.132L115.696 160.995C116.221 160.335 116.906 160.005 117.752 160.005C119.204 160.005 119.936 160.824 119.949 162.461V167H118.774V162.455C118.77 161.96 118.656 161.594 118.432 161.357C118.212 161.12 117.867 161.001 117.397 161.001C117.016 161.001 116.682 161.103 116.394 161.306C116.106 161.509 115.882 161.776 115.721 162.106V167H114.547V160.132H115.658ZM122.996 167H121.821V157.25H122.996V167ZM124.57 163.502C124.57 162.83 124.701 162.224 124.963 161.687C125.23 161.15 125.598 160.735 126.068 160.443C126.542 160.151 127.081 160.005 127.687 160.005C128.622 160.005 129.377 160.329 129.953 160.976C130.532 161.624 130.822 162.485 130.822 163.56V163.642C130.822 164.311 130.693 164.912 130.435 165.445C130.181 165.974 129.815 166.386 129.337 166.683C128.863 166.979 128.317 167.127 127.699 167.127C126.768 167.127 126.013 166.803 125.433 166.156C124.858 165.508 124.57 164.651 124.57 163.585V163.502ZM125.75 163.642C125.75 164.404 125.926 165.015 126.277 165.477C126.633 165.938 127.107 166.168 127.699 166.168C128.296 166.168 128.77 165.936 129.121 165.47C129.472 165 129.648 164.345 129.648 163.502C129.648 162.749 129.468 162.14 129.108 161.674C128.753 161.205 128.279 160.97 127.687 160.97C127.107 160.97 126.639 161.2 126.284 161.662C125.928 162.123 125.75 162.783 125.75 163.642ZM135.05 166.168C135.469 166.168 135.835 166.042 136.148 165.788C136.461 165.534 136.635 165.216 136.668 164.835H137.779C137.758 165.229 137.623 165.604 137.373 165.959C137.123 166.314 136.789 166.598 136.37 166.81C135.955 167.021 135.515 167.127 135.05 167.127C134.115 167.127 133.37 166.816 132.815 166.194C132.265 165.568 131.99 164.713 131.99 163.629V163.433C131.99 162.764 132.113 162.169 132.358 161.649C132.604 161.128 132.955 160.724 133.412 160.437C133.873 160.149 134.417 160.005 135.043 160.005C135.814 160.005 136.453 160.236 136.96 160.697C137.472 161.158 137.745 161.757 137.779 162.493H136.668C136.635 162.049 136.465 161.685 136.161 161.401C135.86 161.114 135.488 160.97 135.043 160.97C134.447 160.97 133.983 161.186 133.653 161.617C133.327 162.045 133.165 162.665 133.165 163.477V163.699C133.165 164.491 133.327 165.1 133.653 165.527C133.979 165.955 134.445 166.168 135.05 166.168ZM141.017 163.82L140.28 164.588V167H139.106V157.25H140.28V163.147L140.909 162.392L143.048 160.132H144.476L141.804 163.001L144.787 167H143.41L141.017 163.82ZM153.153 167C153.086 166.865 153.031 166.623 152.988 166.276C152.442 166.843 151.791 167.127 151.033 167.127C150.356 167.127 149.8 166.937 149.364 166.556C148.932 166.171 148.716 165.684 148.716 165.096C148.716 164.381 148.987 163.826 149.529 163.433C150.075 163.035 150.841 162.836 151.827 162.836H152.969V162.296C152.969 161.886 152.847 161.56 152.601 161.319C152.356 161.073 151.994 160.951 151.516 160.951C151.097 160.951 150.745 161.056 150.462 161.268C150.178 161.48 150.037 161.736 150.037 162.036H148.856C148.856 161.693 148.977 161.363 149.218 161.046C149.463 160.724 149.793 160.47 150.208 160.284C150.627 160.098 151.086 160.005 151.585 160.005C152.377 160.005 152.997 160.204 153.445 160.602C153.894 160.995 154.127 161.539 154.144 162.233V165.394C154.144 166.025 154.224 166.526 154.385 166.898V167H153.153ZM151.205 166.105C151.573 166.105 151.922 166.01 152.252 165.819C152.582 165.629 152.821 165.381 152.969 165.077V163.667H152.049C150.61 163.667 149.891 164.089 149.891 164.931C149.891 165.299 150.013 165.587 150.259 165.794C150.504 166.001 150.819 166.105 151.205 166.105ZM157.26 167H156.086V157.25H157.26V167ZM160.421 167H159.247V157.25H160.421V167ZM166.109 167V161.04H165.023V160.132H166.109V159.427C166.109 158.691 166.306 158.122 166.699 157.72C167.093 157.318 167.649 157.117 168.369 157.117C168.639 157.117 168.908 157.153 169.175 157.225L169.111 158.177C168.912 158.139 168.701 158.12 168.477 158.12C168.096 158.12 167.802 158.232 167.594 158.456C167.387 158.676 167.283 158.993 167.283 159.408V160.132H168.75V161.04H167.283V167H166.109ZM172.749 167.127C171.818 167.127 171.06 166.822 170.476 166.213C169.892 165.599 169.6 164.78 169.6 163.756V163.541C169.6 162.859 169.729 162.252 169.987 161.719C170.25 161.181 170.614 160.762 171.079 160.462C171.549 160.157 172.057 160.005 172.603 160.005C173.495 160.005 174.189 160.299 174.685 160.887C175.18 161.475 175.427 162.318 175.427 163.414V163.902H170.774C170.791 164.579 170.988 165.127 171.365 165.546C171.746 165.961 172.228 166.168 172.812 166.168C173.227 166.168 173.578 166.084 173.866 165.915C174.153 165.745 174.405 165.521 174.621 165.242L175.338 165.8C174.763 166.685 173.9 167.127 172.749 167.127ZM172.603 160.97C172.129 160.97 171.731 161.143 171.409 161.49C171.088 161.833 170.889 162.315 170.812 162.938H174.253V162.849C174.219 162.252 174.058 161.791 173.771 161.465C173.483 161.135 173.093 160.97 172.603 160.97ZM181.032 167C180.965 166.865 180.91 166.623 180.867 166.276C180.321 166.843 179.67 167.127 178.912 167.127C178.235 167.127 177.679 166.937 177.243 166.556C176.811 166.171 176.595 165.684 176.595 165.096C176.595 164.381 176.866 163.826 177.408 163.433C177.954 163.035 178.72 162.836 179.706 162.836H180.848V162.296C180.848 161.886 180.725 161.56 180.48 161.319C180.235 161.073 179.873 160.951 179.395 160.951C178.976 160.951 178.624 161.056 178.341 161.268C178.057 161.48 177.916 161.736 177.916 162.036H176.735C176.735 161.693 176.855 161.363 177.097 161.046C177.342 160.724 177.672 160.47 178.087 160.284C178.506 160.098 178.965 160.005 179.464 160.005C180.256 160.005 180.876 160.204 181.324 160.602C181.773 160.995 182.006 161.539 182.022 162.233V165.394C182.022 166.025 182.103 166.526 182.264 166.898V167H181.032ZM179.083 166.105C179.452 166.105 179.801 166.01 180.131 165.819C180.461 165.629 180.7 165.381 180.848 165.077V163.667H179.928C178.489 163.667 177.77 164.089 177.77 164.931C177.77 165.299 177.892 165.587 178.138 165.794C178.383 166.001 178.698 166.105 179.083 166.105ZM185.457 158.469V160.132H186.739V161.04H185.457V165.299C185.457 165.574 185.514 165.781 185.628 165.921C185.742 166.056 185.937 166.124 186.212 166.124C186.347 166.124 186.534 166.099 186.771 166.048V167C186.462 167.085 186.161 167.127 185.869 167.127C185.344 167.127 184.949 166.968 184.682 166.651C184.416 166.333 184.282 165.883 184.282 165.299V161.04H183.032V160.132H184.282V158.469H185.457ZM192.356 166.321C191.899 166.858 191.229 167.127 190.344 167.127C189.612 167.127 189.054 166.915 188.668 166.492C188.288 166.065 188.095 165.434 188.091 164.601V160.132H189.265V164.569C189.265 165.61 189.688 166.13 190.535 166.13C191.432 166.13 192.028 165.796 192.325 165.127V160.132H193.499V167H192.382L192.356 166.321ZM198.609 161.186C198.431 161.156 198.239 161.141 198.031 161.141C197.261 161.141 196.738 161.469 196.463 162.125V167H195.289V160.132H196.432L196.451 160.925C196.836 160.312 197.382 160.005 198.088 160.005C198.317 160.005 198.49 160.035 198.609 160.094V161.186ZM202.417 167.127C201.486 167.127 200.729 166.822 200.145 166.213C199.561 165.599 199.269 164.78 199.269 163.756V163.541C199.269 162.859 199.398 162.252 199.656 161.719C199.919 161.181 200.283 160.762 200.748 160.462C201.218 160.157 201.726 160.005 202.271 160.005C203.164 160.005 203.858 160.299 204.354 160.887C204.849 161.475 205.096 162.318 205.096 163.414V163.902H200.443C200.46 164.579 200.657 165.127 201.034 165.546C201.415 165.961 201.897 166.168 202.481 166.168C202.896 166.168 203.247 166.084 203.535 165.915C203.822 165.745 204.074 165.521 204.29 165.242L205.007 165.8C204.432 166.685 203.569 167.127 202.417 167.127ZM202.271 160.97C201.798 160.97 201.4 161.143 201.078 161.49C200.757 161.833 200.558 162.315 200.481 162.938H203.922V162.849C203.888 162.252 203.727 161.791 203.439 161.465C203.152 161.135 202.762 160.97 202.271 160.97ZM210.46 165.178C210.46 164.861 210.339 164.615 210.098 164.442C209.861 164.264 209.444 164.112 208.848 163.985C208.255 163.858 207.783 163.706 207.432 163.528C207.085 163.35 206.827 163.139 206.658 162.893C206.493 162.648 206.41 162.356 206.41 162.017C206.41 161.454 206.647 160.978 207.121 160.589C207.599 160.2 208.209 160.005 208.949 160.005C209.728 160.005 210.358 160.206 210.841 160.608C211.327 161.01 211.571 161.524 211.571 162.15H210.39C210.39 161.829 210.253 161.552 209.978 161.319C209.707 161.086 209.364 160.97 208.949 160.97C208.522 160.97 208.188 161.063 207.946 161.249C207.705 161.435 207.584 161.679 207.584 161.979C207.584 162.263 207.697 162.476 207.921 162.62C208.145 162.764 208.549 162.902 209.133 163.033C209.722 163.164 210.198 163.32 210.562 163.502C210.925 163.684 211.194 163.904 211.368 164.163C211.545 164.417 211.634 164.728 211.634 165.096C211.634 165.709 211.389 166.202 210.898 166.575C210.407 166.943 209.77 167.127 208.987 167.127C208.437 167.127 207.951 167.03 207.527 166.835C207.104 166.64 206.772 166.369 206.531 166.022C206.294 165.671 206.175 165.292 206.175 164.886H207.35C207.371 165.28 207.527 165.593 207.819 165.826C208.116 166.054 208.505 166.168 208.987 166.168C209.432 166.168 209.787 166.08 210.054 165.902C210.325 165.72 210.46 165.479 210.46 165.178Z" fill="#3E5058"/>
+            <g filter="url(#filter0_d)">
+              <path d="M190 65C190 87.0914 172.091 105 150 105C127.909 105 110 87.0914 110 65C110 42.9086 127.909 25 150 25C172.091 25 190 42.9086 190 65Z" fill="white"/>
+            </g>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M146.791 45.5662C146.723 44.3299 147.67 43.2726 148.907 43.2046C161.005 42.5393 171.353 51.808 172.018 63.9067C172.622 74.8825 165.052 84.4132 154.609 86.588C153.397 86.8404 152.21 86.0624 151.957 84.8503C151.705 83.6381 152.483 82.4508 153.695 82.1984C162 80.4688 168.021 72.882 167.541 64.1529C167.012 54.5268 158.779 47.1523 149.153 47.6816C147.917 47.7496 146.859 46.8025 146.791 45.5662ZM136.583 50.6197C137.525 51.4236 137.636 52.8387 136.833 53.7804C135.905 54.8673 135.109 56.0675 134.469 57.3548C133.918 58.4635 132.573 58.9154 131.464 58.3642C130.355 57.8129 129.903 56.4673 130.454 55.3586C131.259 53.7403 132.258 52.2333 133.422 50.8694C134.226 49.9276 135.641 49.8159 136.583 50.6197ZM130.857 60.3622C132.085 60.5195 132.953 61.6427 132.796 62.8708C132.663 63.9116 132.622 64.9808 132.682 66.0697C132.788 67.9977 133.202 69.831 133.871 71.5273C134.326 72.6789 133.761 73.9812 132.61 74.4359C131.458 74.8907 130.156 74.3258 129.701 73.1742C128.857 71.0361 128.337 68.7302 128.205 66.3159C128.13 64.9534 128.181 63.6112 128.349 62.3011C128.506 61.073 129.629 60.2049 130.857 60.3622ZM133.316 75.6506C134.283 74.8773 135.693 75.0343 136.467 76.0013C139.091 79.2828 142.862 81.5789 147.125 82.3145C148.345 82.525 149.164 83.6848 148.953 84.9049C148.743 86.1251 147.583 86.9435 146.363 86.733C140.992 85.8063 136.256 82.9171 132.965 78.8017C132.192 77.8347 132.349 76.4239 133.316 75.6506Z" fill="#0DC050"/>
+            <path d="M157.267 62.6041H156.069V61.0069C156.069 57.9244 153.562 55.4166 150.479 55.4166C147.397 55.4166 144.889 57.9244 144.889 61.0069V62.6041H143.691C143.47 62.6041 143.292 62.7827 143.292 63.0034V72.9861C143.292 73.867 144.008 74.5833 144.889 74.5833H156.069C156.95 74.5833 157.667 73.867 157.667 72.9861V63.0034C157.667 62.7827 157.488 62.6041 157.267 62.6041ZM151.675 70.9455C151.687 71.0582 151.651 71.1713 151.575 71.2559C151.5 71.3405 151.391 71.3889 151.278 71.3889H149.681C149.567 71.3889 149.459 71.3405 149.383 71.2559C149.307 71.1713 149.271 71.0582 149.284 70.9455L149.536 68.6803C149.126 68.3828 148.882 67.9121 148.882 67.3958C148.882 66.5149 149.598 65.7986 150.479 65.7986C151.36 65.7986 152.076 66.5149 152.076 67.3958C152.076 67.9121 151.832 68.3828 151.423 68.6803L151.675 70.9455ZM153.674 62.6041H147.285V61.0069C147.285 59.2455 148.718 57.8125 150.479 57.8125C152.241 57.8125 153.674 59.2455 153.674 61.0069V62.6041Z" fill="#0DC050"/>
+            <defs>
+              <filter id="filter0_d" x="102" y="17" width="96" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                <feOffset/>
+                <feGaussianBlur stdDeviation="4"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0.865972 0 0 0 0 0.888577 0 0 0 0 0.895833 0 0 0 1 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+              </filter>
+            </defs>
+          </svg>
+          <a target="blank" href="https://app.statfluence.com/" class="button-primary selected subscribe-link">subscribe here</a>
+
+          <span class="visit-link">
+            For more info visit &nbsp;
+            <a target="blank"  href="https://statfluence.com/">statfluence.com</a>
+          </span>
+
+          <button class="button-primary btn-logout" data-auth="logout">Logout</button>
+        </div>
+      </div>
+
+      <div id="info-description" class="description-info">
+          <div class="description-info__wrapper">
+              <div class="info-group">
+                  <h6 class="info-group__title">Contact types:</h6>
+
+                  <ul class="info-group__list">
+                      <li class="info-group__item">
+                          <span class="info-group__item--accent">1. Saved Contacts Only: Chat option</span>
+                          <span>Export saved contacts which you chatted with.</span>
+                      </li>
+                      <li class="info-group__item">
+                          <span class="info-group__item--accent">2. Non-Saved contacts Only</span>
+                          <span>Export numbers that are not yet saved to your phone's contacts.</span>
+                      </li>
+                  </ul>
+
+                  <h6 class="info-group__title info-group__title--offset">Formats:</h6>
+
+                  <ul class="info-group__list">
+                      <li class="info-group__item">
+                          <span class="info-group__item--accent">1. VCard</span>
+                          <span>Open VCard on your phone to instantly import all contacts.</span>
+                      </li>
+                      <li class="info-group__item">
+                          <span class="info-group__item--accent">2. CSV</span>
+                          <span>Instantly import all contacts to Google Contacts.</span>
+                      </li>
+                  </ul>
+              </div>
+
+              <p class="info-group__ref">
+                  Visit
+                  <a href="https://app.statfluence.com/"
+                     target="_blank"
+                     class="info-group__item--inline info-group__item--accent">
+                      statfluence.com
+                  </a>
+                  for more info and FAQs.
+              </p>
+          </div>
+      </div>
+
+    <script src="dist/popup.js"></script>
+  </body>
+</html>

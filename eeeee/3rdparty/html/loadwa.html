@@ -1,0 +1,230 @@
+<div id="wadgc_main" style="overflow-y: scroll; overflow-x: scroll; width:100%;height:100%;z-index:99999999;position:absolute;background:#fff;display:block;left:0;direction:ltr">
+  <header id="wa_send_bulk_messages_header" class="_3fs0K tab" style="margin-top:0">
+    <div class="_3V5x5">
+      <button class="tablinks" id="tab1" name="tab" onclick="tab_selection">Download Numbers</button>
+    </div>
+    <div class="_3V5x5" style="display: none;">
+      <button class="tablinks" id="tab2" name="tab" onclick="tab_selection">Group Utils</button>
+    </div>
+  </header>
+  <div id="tab1_text" tab="Group Utils" class="tabcontent" style="display:block; border: none">
+    
+    <span style="position:absolute;top: 10%;right: 2%;text-align:right;"> <a href="https://bit.ly/whatsapp_marketing_tool" target="_blank"> <image id="image0" width="25%" height="25%" x="0" y="0" href="" class="image0"></image> <b id="app_version" style="font-size: 13px;display:block;margin-top:5px"></b></a><br></span>
+
+    <div class="container" style="padding-left:0!important">
+      <div class="grid-container">
+        <div class="grid-child" style="padding-right:10px">
+          <label class="my-1 mr-2" for="wadgc_group">Choose this first:</label>
+          <select id="wadgc_group" class="w-100" name="wadgc_group">
+            <option value="from_groups">From groups</option>
+            <option value="from_broadcasts">From specific broadcasts</option>
+            <option value="from_labels">From chats using labels</option>
+            <option value="from_groups_labels">From groups using labels</option>
+            <option value="from_countries">From specific countries</option>
+            <option value="from_contacts">From all contacts</option>
+            <option value="from_chats">From all open chats</option>
+          </select>
+        </div>
+        <div class="grid-child">
+          <label class="my-1 mr-2" for="wadgc_type">Choose this next:</label>
+          <select id="wadgc_type" class="w-100" name="wadgc_type" multiple="true" aria-expanded="false" aria-multiselectable="true" aria-multiline="false"></select>
+        </div>
+      </div>
+      <div style="margin-top:3%;text-align:left" id="top_select_panel">
+        <ul style="float:right">
+          <li>
+            <label>
+              <p id="no_of_participants_ui">No. of participants: </p>
+            </label>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" id="select_all">Select all options below </input>
+            </label>
+          </li>
+        </ul>
+        <ui id="dwnsf_widget">
+          <!-- <label class="arrowpopup"><input type="checkbox" id="dwnsf_input">Download all in single file</input><span class="tooltiptext" id="dwnsf_tooltip">More possibility for error as the size increases, hence prefer not to select this option.</span></label> -->
+        </ui>
+      </div>
+      <div class="grid-container" id="option_main" style="margin-top:2%;grid-template-columns:33% 33% 33%">
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" id="country_code" checked="" disabled="disabled"> Country code </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="phone_number" checked="" disabled="disabled"> Phone number </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="saved_name" checked="checked"> Saved name in phone </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="public_name" checked="checked"> Public display name </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="is_business"> Is business account? </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="is_blocked"> Is blocked contact? </label>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" id="labels"> Include labels </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="source"> source (group / contact) </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="source_name"> Include source name </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="saved_contacts"> Include saved contacts </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="past_participants"> Include Past Participants </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="requested_to_join"> Include Pending Requests <span style="color:red">(New)</span> </label>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" id="last_msg_status"> Have unread messages ? </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="last_msg_type"> Last message type </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="last_msg_date"> Last message date </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" id="last_msg_text"> Last message text </label>
+          </li>
+        </ul>
+        <div></div>
+        <div></div>
+        <span id="download_btn" class="download_btn">Download <span class="" style="float:right">
+            <svg viewBox="0 0 19 20" width="19" height="20" class="">
+              <path fill="currentColor" d="M3.8 6.7l5.7 5.7 5.7-5.7 1.6 1.6-7.3 7.2-7.3-7.2 1.6-1.6z"></path>
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================== Group Utils ====================================== -->
+  <div id="tab2_text" tab="Group Utils" class="tabcontent">
+    <span style="position:absolute;top: 10%;right: 2%;text-align:right;"> <a href="https://bit.ly/whatsapp_marketing_tool" target="_blank"> <image id="image0" width="25%" height="25%" x="0" y="0" href="" class="image0"></image> <b id="app_version" style="font-size: 13px;display:block;margin-top:5px"></b></a><br></span>
+    <div class="container" style="padding-left:0!important">
+      <div class="grid-container-full">
+        <div class="grid-child" style="padding-right:10px">
+          <label class="my-1 mr-2" for="wadgc_gutils_first">Choose this first:</label>
+          <select id="wadgc_gutils_first" class="w-100" name="wadgc_gutils_first">
+            <option value="gutils_gwc">Using Label</option>
+            <option value="gutils_gwnf">Using New Numbers</option>
+          </select>
+        </div>
+        <div class="grid-child" id="wadgc_gutils_gname_container" style="display: table;"> 
+          <label class="my-1 mr-2" for="wadgc_gutils_gname">Add To Existing Group(s) - (You should be one of the admin):</label> 
+          <select id="wadgc_gutils_gname" class="w-100" style="margin-bottom:11px !important" name="wadgc_gutils_gname" aria-expanded="false" aria-multiselectable="true" aria-multiline="false"></select>
+          <label class="my-1 mr-2" for="wadgc_gutils_gname">(OR)</label> <label class="my-1 mr-2" for="wadgc_gutils_gname">*Create New Group(s):</label>
+          <input id="gutils_nw_group" style="width:100%; height:26%;" class="w-100" name="gutils_nw_group" aria-expanded="false" placeholder="Enter the new group name"><br><br>
+          <!-- <label class="my-1 mr-2" for="wadgc_gutils_desc">Group description:</label>
+          <input id="gutils_nw_group_desc" style="width:100%; height:26%;" class="w-100" name="gutils_nw_group_desc" aria-expanded="false" placeholder="Enter description for new group"><br><br> -->
+        </div>
+        <div class="grid-child" id="wadgc_gutils_label_container" style="display: table;">
+          <label class="my-1 mr-2" for="wadgc_gutils_lname">Choose the label(s):</label>
+          <select id="wadgc_gutils_lname" class="w-100" name="wadgc_gutils_lname" multiple="true" aria-expanded="false" aria-multiselectable="true" aria-multiline="false"></select>
+        </div>
+        <div class="grid-child" id="gutils_give_numbers" style="display:none; padding-top: 1.2%; width:100%">
+          <label class="my-1 mr-2" for="gutils_give_numbers">Upload using file:</label>
+          <p id="phno_temp_file_p" style="position: relative;">
+            <input type="file" class="phnotempfile" id="phnotempfile" autocomplete="off">
+              <br><span style="color:red;display: none;" id="phnotempfile_error">File size must be less than 10 MB.</span>
+              <input type="hidden" id="phnotempfile_base64" value=""><input type="hidden" id="phnotempfile_name" value="">
+          </p>
+          <label class="my-1 mr-2" for="gutils_give_numbers">(OR) Paste Numbers:</label>
+          <textarea id="gutils_phnos" class = "w-100" style="width: 100%; height: 60%" name="gutils_phnos" aria-expanded="true" placeholder="Paste comma separated phone numbers with country code. eg: 919100916479,918341441706"></textarea>
+        </div>
+      </div>
+      <div class="grid-container" id="option_main" style="margin-top:7%;grid-template-columns:33% 33% 33%">
+        <div></div>
+        <div><span id="crgp_btn" class="download_btn" style="float:left !important; width:60%;font-size:25px">Create Group<span class="" style="float:center"></span></div>
+        </span>
+        <div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="wap_footer" style="width:100%;z-index:99999999;position:absolute;background:#fff;overflow:hidden auto;left:0;direction:ltr">
+    <div class="footer-nav">
+      <ul style="float:left">
+        <li>
+          <span id="account_info" class="tip" data-text="Click to send private notes"></span>
+        </li>
+      </ul>
+      <ul style="padding:0 3px">
+        <li>
+          <a href="https://forms.gle/BufMftUg7JwBaiDPA" target="_blank" class="loadlink">Affiliate Programme</a>
+        </li>
+        <li class="">
+          <a href="#" class="loadlink" id="subscribe_now">Cancel Subscription</a>
+        </li>
+        <li class="language dropdown" style="display:none">
+          <a class="lang_sel loadlink" style="position:relative" href="javascript:;">
+            <span>English</span>
+            <ul>
+              <li>
+                <span data-lang="en">English</span>
+              </li>
+              <li>
+                <span data-lang="tr">Türkçe</span>
+              </li>
+              <li>
+                <span data-lang="pt-BR">Português</span>
+              </li>
+              <li>
+                <span data-lang="fr">Français</span>
+              </li>
+              <li>
+                <span data-lang="es">Español</span>
+              </li>
+              <li>
+                <span data-lang="ru">Русский</span>
+              </li>
+              <li>
+                <span data-lang="ar">العربية</span>
+              </li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <a href="whatsapp://send?phone=919100916479" id="support" class="close-frame loadlink">Help &amp; Support</a>
+        </li>
+        <li>
+          <a href="https://chrome.google.com/webstore/detail/wa-download-group-phone-n/henhldbgljkagjabmpjnlphncpnfggcd/" class="loadlink" target="_blank">Extension Link</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
